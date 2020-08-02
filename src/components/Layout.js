@@ -7,13 +7,15 @@ import {
   AiFillGithub,
   AiFillLinkedin,
 } from "react-icons/ai"
+import GlobalStyle from "../styles/globalStyle"
 
 export default function Layout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
-      <header className={`nav__mobile`}>
+      <GlobalStyle />
+      <StyledHeader className={`nav__mobile`}>
         <div onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
         </div>
@@ -21,12 +23,15 @@ export default function Layout({ children }) {
           <a href="https://github.com/ola-dola">
             <AiFillGithub />
           </a>
-          <a href="https://linkedin.com/ola-oredola">
+          <a
+            style={{ paddingLeft: ".4rem" }}
+            href="https://linkedin.com/in/ola-oredola"
+          >
             <AiFillLinkedin />
           </a>
         </div>
-      </header>
-      <section style={{display: menuOpen ? "block": "none"}}>
+      </StyledHeader>
+      <section style={{ display: menuOpen ? "block" : "none" }}>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -41,3 +46,12 @@ export default function Layout({ children }) {
     </>
   )
 }
+
+const StyledHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+
+  @media(min-width: 720px) {
+    display: none;
+  }
+`
