@@ -11,6 +11,13 @@ const GlobalStyle = createGlobalStyle`
         width: 96%;
         font-size: 1.5rem;
         color: black;
+
+        @media(min-width: 720px) {
+            margin: 0 10vw;
+            padding: 0;
+            max-width: 80vw;
+        } 
+
     }
 
     ul {
@@ -24,8 +31,6 @@ const GlobalStyle = createGlobalStyle`
             fill: #6f00ff;
         }
     }
-
-
 
     a {
         color: black;
