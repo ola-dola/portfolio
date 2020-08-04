@@ -19,16 +19,17 @@ export default function Layout({ children }) {
   const data = useStaticQuery(
     graphql`
       {
-        file(relativePath: { eq: "olamide.jpg" }) {
+        file(relativePath: { eq: "olamide1.jpg" }) {
           childImageSharp {
-            fixed(width: 250, height: 250) {
+            fixed(width: 200, height: 250) {
               ...GatsbyImageSharpFixed
             }
           }
         }
       }
-    `
-  )
+      `
+      )
+            
 
   return (
     <>
@@ -42,7 +43,7 @@ export default function Layout({ children }) {
             <AiFillGithub />
           </a>
           <a
-            style={{ paddingLeft: ".4rem" }}
+            style={{ paddingLeft: ".8rem" }}
             href="https://linkedin.com/in/ola-oredola"
           >
             <AiFillLinkedin />
@@ -62,13 +63,21 @@ export default function Layout({ children }) {
       </section>
 
       <StyledAside>
-        <Img
-          fixed={data.file.childImageSharp.fixed}
-          style={{ borderRadius: "50%" }}
-          alt="portfolio owner, Olamide Oredola slightly smiling"
-        />
+        <div style={{marginTop: "2rem"}}>
+          <Img
+            fixed={data.file.childImageSharp.fixed}
+            style={{ borderRadius: "50%"}}
+            alt="portfolio owner, Olamide Oredola slightly smiling"
+          />
+        </div>
 
-        <div>
+        <StyledSideNavlinks className="sidebar__links">
+          <Link to="/">Home</Link>
+          <Link to="projects">Projects</Link>
+          <a href="mailto:oredolaolamide@gmail.com">Contact me</a>
+        </StyledSideNavlinks>
+
+        <StyledSocialLinks>
           <a href="https://github.com/ola-dola">
             <AiFillGithub />
           </a>
@@ -81,13 +90,7 @@ export default function Layout({ children }) {
           <a href="https://twitter.com/olascript">
             <AiFillTwitterCircle />
           </a>
-        </div>
-
-        <div className="sidebar__links">
-          <Link to="projects">Home</Link>
-          <Link to="projects">View Projects</Link>
-          <Link to="projects">Contact me</Link>
-        </div>
+        </StyledSocialLinks>
       </StyledAside>
       <StyledMain>{children}</StyledMain>
     </>
@@ -99,35 +102,68 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
 
-  @media (min-width: 720px) {
+  @media (min-width: 850px) {
     display: none;
   }
 `
 
 // Aside for Desktop. No Header
 const StyledAside = styled.aside`
-  height: 100%;
-  width: 20%;
-  /* background-color: #181818; */
-  position: fixed;
-  /* z-index: 1; */
-  top: 0;
-  left: inherit;
-  overflow-x: hidden;
-  padding: 2rem 0;
+  display: none;
+
+  @media (min-width: 850px) {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: inherit;
+    /* background-color: #181818; */
+    overflow-x: hidden;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid red;
+    font-size: 2rem;
+  }
+
+  @media(min-width: 1500px) {
+    font-size: 3.5rem;
+    line-height: 1.5;
+  }
+`
+const StyledMain = styled.main`
+  border: 3px dotted yellow;
+  padding-bottom: 1000px;
+
+  @media (min-width: 850px) {
+    margin-left: 21%;
+  }
+
+  @media (min-width: 1500px) {
+    margin-left: 25%;
+  }
+`
+
+const StyledSideNavlinks = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid red; */
-  font-size: 2rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin: 1rem 0;
 
-  @media (max-width: 720px) {
-    display: none;
+  a {
+    padding-bottom: 0.8rem;
   }
 `
-const StyledMain = styled.main`
-  margin-left: 20vw;
-  border: 1px dotted yellow;
-  padding-bottom: 1000px;
+
+const StyledSocialLinks = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
 `
