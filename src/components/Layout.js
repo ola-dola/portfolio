@@ -21,15 +21,15 @@ export default function Layout({ children }) {
       {
         file(relativePath: { eq: "olamide1.jpg" }) {
           childImageSharp {
-            fixed(width: 200, height: 250) {
-              ...GatsbyImageSharpFixed
+            fluid(maxHeight: 350, maxWidth: 350, quality: 100) {
+              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluidLimitPresentationSize
             }
           }
         }
       }
-      `
-      )
-            
+    `
+  )
 
   return (
     <>
@@ -63,10 +63,10 @@ export default function Layout({ children }) {
       </section>
 
       <StyledAside>
-        <div style={{marginTop: "2rem"}}>
+        <div style={{ marginTop: "2rem", width: "80%" }}>
           <Img
-            fixed={data.file.childImageSharp.fixed}
-            style={{ borderRadius: "50%"}}
+            fluid={data.file.childImageSharp.fluid}
+            style={{ borderRadius: "50%", textAlign: "center" }}
             alt="portfolio owner, Olamide Oredola slightly smiling"
           />
         </div>
@@ -129,14 +129,14 @@ const StyledAside = styled.aside`
     font-size: 2rem;
   }
 
-  @media(min-width: 1500px) {
+  @media (min-width: 1500px) {
     font-size: 3.5rem;
     line-height: 1.5;
   }
 `
 const StyledMain = styled.main`
   border: 3px dotted yellow;
-  padding-bottom: 1000px;
+  padding: 1rem 0;
 
   @media (min-width: 850px) {
     margin-left: 21%;
