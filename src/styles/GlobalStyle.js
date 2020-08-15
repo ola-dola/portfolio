@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
         max-width: 820px;
         color: rgb(238, 238, 238);
         background-color: #eeeeee;
-        
+        font-family: 'Roboto Mono', monospace;
     }
 
     ul {
@@ -91,7 +91,7 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
 
         :visited {
-            color: black;
+            color: #222;
         }
         :hover, :focus, :active {
             color: #6f00ff;
@@ -105,6 +105,7 @@ const GlobalStyle = createGlobalStyle`
     p {
         color: #0E1B42;
         font-size: 1rem;
+        font-weight: 400;
 
         @media(min-width: 750px) {
             font-size: 1.25rem;
