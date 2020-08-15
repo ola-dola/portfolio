@@ -14,10 +14,10 @@ export default function Layout({ children }) {
 }
 
 const StyledLayout = styled.div`
-  padding: 1.5rem 0.75rem 0.75rem;
+  padding: 1.5rem 0.75rem 0;
 
   @media (min-width: 700px) {
-    padding: 2rem 1rem 1rem;
+    padding: 2rem 1rem 0;
   }
 `
 
