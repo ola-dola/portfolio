@@ -72,26 +72,23 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto Mono', monospace;
     }
 
-    ul {
-        list-style: none;
-    }
-
     svg {
         fill: #0E1B42;
         color: #0E1B42;
         font-size: 2rem;
+        text-decoration: underline;
 
         :hover, :focus {
-            fill: #222;
+            fill: #6f00ff;
         }
     }
 
     a {
-        color: black;
+        color: #0E1B42;
         text-decoration: none;
 
         :visited {
-            color: #222;
+            color: #0E1B42;
         }
         :hover, :focus, :active {
             color: #6f00ff;
@@ -100,9 +97,11 @@ const GlobalStyle = createGlobalStyle`
 
     h1,h2,h3,h4,h5,h6 {
         color: #1F1940;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
     }
 
-    p {
+    p, ul, li, a {
         color: #0E1B42;
         font-size: 1rem;
         font-weight: 400;
