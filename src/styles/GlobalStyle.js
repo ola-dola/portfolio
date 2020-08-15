@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
+
+    /* -- RESET!! -- */
+
     /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
     License: none (public domain)
@@ -53,27 +56,20 @@ const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
       box-sizing: border-box;
     }
+
+    /* -- Custom -- */
+
+    html {
+        font-size: 16px;
+    }
+
     body {
-        margin: 0 2vw;
-        border: .5px solid black;
-        padding: .25rem .25rem;
+        margin: 0 auto;
         width: 96%;
-        font-size: 1.5rem;
-        color: black;
-
-        @media(min-width: 850px) {
-            margin: 0 2vw;
-            padding: 0;
-            max-width: 98vw;
-        } 
-
-        @media(min-width: 1500px) {
-            margin: 0 10vw;
-            max-width: 80vw;
-            font-size: 5rem;
-            line-height: 2rem
-        }
-
+        max-width: 820px;
+        color: rgb(238, 238, 238);
+        background-color: #eeeeee;
+        
     }
 
     ul {
@@ -81,11 +77,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
     svg {
-        fill: black;
+        fill: #0E1B42;
+        color: #0E1B42;
         font-size: 2rem;
 
         :hover, :focus {
-            fill: #6f00ff;
+            fill: #222;
         }
     }
 
@@ -98,6 +95,19 @@ const GlobalStyle = createGlobalStyle`
         }
         :hover, :focus, :active {
             color: #6f00ff;
+        }
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        color: #1F1940;
+    }
+
+    p {
+        color: #0E1B42;
+        font-size: 1rem;
+
+        @media(min-width: 750px) {
+            font-size: 1.25rem;
         }
     }
 
