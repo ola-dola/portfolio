@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 // import { Link } from "gatsby"
 
-import GlobalStyle from "../styles/globalStyle"
+import GlobalStyle from "../styles/GlobalStyle"
 
 export default function Layout({ children }) {
   return (
